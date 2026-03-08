@@ -597,6 +597,7 @@
       * [运筹学第二次作业.pdf](%E5%A4%A7%E4%B8%89%E4%B8%8A/%E8%BF%90%E7%AD%B9%E5%AD%A6/%E4%BD%9C%E4%B8%9A/%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A.pdf ':ignore')
       * [运筹学第五次作业(1).pdf](%E5%A4%A7%E4%B8%89%E4%B8%8A/%E8%BF%90%E7%AD%B9%E5%AD%A6/%E4%BD%9C%E4%B8%9A/%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%AC%E4%BA%94%E6%AC%A1%E4%BD%9C%E4%B8%9A%281%29.pdf ':ignore')
       * [运筹学第四次作业(1).pdf](%E5%A4%A7%E4%B8%89%E4%B8%8A/%E8%BF%90%E7%AD%B9%E5%AD%A6/%E4%BD%9C%E4%B8%9A/%E8%BF%90%E7%AD%B9%E5%AD%A6%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%BD%9C%E4%B8%9A%281%29.pdf ':ignore')
+* **大三下**
 * **大二上**
   * **史纲**
     * [1_《中国近现代史纲要》复习重点(完美版).doc](%E5%A4%A7%E4%BA%8C%E4%B8%8A/%E5%8F%B2%E7%BA%B2/1_%E3%80%8A%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2%E7%BA%B2%E8%A6%81%E3%80%8B%E5%A4%8D%E4%B9%A0%E9%87%8D%E7%82%B9%28%E5%AE%8C%E7%BE%8E%E7%89%88%29.doc ':ignore')
