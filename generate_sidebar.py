@@ -1,50 +1,72 @@
 import os
+import urllib.parse
 
 # --- 配置区 ---
-EXCLUDE_DIRS = ['.git', '.github', 'assets', '.vscode']  # 忽略这些文件夹
-EXCLUDE_FILES = ['README.md', 'SUMMARY.md']                      # 侧边栏通常不重复列出首页
-SIDEBAR_PATH = '_sidebar.md'                                # 输出路径
+EXCLUDE_DIRS = ['.git', '.github', 'docs', 'assets', '.vscode']
+EXCLUDE_FILES = ['README.md', 'SUMMARY.md', '_sidebar.md', '_navbar.md', 'generate_sidebar.py', '.nojekyll']
+
+# 定义允许出现在侧边栏的文件类型及对应的图标
+FILE_TYPES = {
+    '.md': '📝',
+    '.pdf': '📕',
+    '.zip': '📦',
+    '.rar': '📦',
+    '.7z': '📦',
+    '.docx': '📄',
+    '.doc': '📄',
+    '.pptx': '📊',
+    '.ppt': '📊',
+    '.xlsx': '📈',
+    '.jpg': '🖼️',
+    '.png': '🖼️'
+}
+
+SIDEBAR_PATH = '_sidebar.md'
 # --------------
 
 def generate_sidebar():
     sidebar_content = [
-        "* [🏠 首页](README.md)\n",
-        "* **资料库目录**\n"
+        "* [🏠 首页](README.md)\n\n"
     ]
 
-    # 获取当前根目录下所有一级目录
-    for item in sorted(os.listdir('.')):
-        item_path = os.path.join('.', item)
+    for root, dirs, files in sorted(os.walk('.')):
+        # 过滤掉隐藏文件夹和排除名单
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS and not d.startswith('.')]
         
-        # 如果是符合条件的文件夹
-        if os.path.isdir(item_path) and item not in EXCLUDE_DIRS:
-            sidebar_content.append(f"  * **{item}**\n")
-            
-            # 扫描二级目录下的 .md 文件
-            for root, dirs, files in os.walk(item_path):
-                # 计算缩进层级
-                rel_path = os.path.relpath(root, '.')
-                level = rel_path.count(os.sep)
-                indent = "    " * (level + 1)
-                
-                # 添加子文件夹名（如果有）
-                if root != item_path:
-                    folder_name = os.path.basename(root)
-                    sidebar_content.append(f"{indent}* **{folder_name}**\n")
+        rel_path = os.path.relpath(root, '.')
+        if rel_path == '.':
+            continue
 
-                # 添加 .md 文件链接
-                for file in sorted(files):
-                    if file.endswith('.md') and file not in EXCLUDE_FILES:
-                        file_name = file.replace('.md', '')
-                        # 转换路径分隔符为网页通用的 /
-                        full_path = os.path.join(root, file).replace('\\', '/')
-                        sidebar_content.append(f"{indent}  * [{file_name}]({full_path})\n")
-    
-    # 写入文件
+        level = rel_path.count(os.sep)
+        indent = "  " * level
+        folder_name = os.path.basename(root)
+
+        # 添加文件夹标题
+        sidebar_content.append(f"{indent}* **{folder_name}**\n")
+
+        # 遍历所有文件
+        for file in sorted(files):
+            if file in EXCLUDE_FILES or file.startswith('.'):
+                continue
+            
+            ext = os.path.splitext(file)[1].lower()
+            
+            # 如果文件在我们的白名单内
+            if ext in FILE_TYPES:
+                emoji = FILE_TYPES[ext]
+                display_name = file
+                
+                # 构造路径并处理 URL 编码（防止文件名中有空格导致链接失效）
+                raw_path = os.path.join(rel_path, file).replace('\\', '/')
+                url_path = urllib.parse.quote(raw_path)
+                
+                # 生成 Markdown 链接
+                sidebar_content.append(f"{indent}  * {emoji} [{display_name}]({url_path})\n")
+
     with open(SIDEBAR_PATH, 'w', encoding='utf-8') as f:
         f.writelines(sidebar_content)
     
-    print(f"✅ 侧边栏已成功更新至: {SIDEBAR_PATH}")
+    print(f"✅ 多格式导航已修复！已支持 {len(FILE_TYPES)} 种文件格式。")
 
 if __name__ == "__main__":
     generate_sidebar()
