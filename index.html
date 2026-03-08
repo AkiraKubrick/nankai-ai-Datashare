@@ -44,7 +44,6 @@
             links.forEach(function(link) {
               var href = link.getAttribute('href');
               
-              // 修复：保留页面内锚点跳转 (不以 #/ 开头的纯锚点)
               if (!href || (href.startsWith('#') && !href.startsWith('#/'))) return;
 
               var isAttachment = fileExts.some(function(ext) {

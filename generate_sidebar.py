@@ -8,7 +8,6 @@ EXCLUDE_FILES = ['README.md', 'SUMMARY.md', '_sidebar.md', '_navbar.md', 'genera
 SIDEBAR_PATH = '_sidebar.md'
 
 def generate_sidebar():
-    # 注意：这里的 [联系我们] 链接已更新为 Docsify 兼容格式
     sidebar_content = [
         "* [🏠 首页](/) \n",
     ]
@@ -28,7 +27,6 @@ def generate_sidebar():
             raw_path = os.path.join(rel_path, file).replace('\\', '/')
             url_path = urllib.parse.quote(raw_path)
             
-            # 为非 md 文件增加 ':ignore' 标识，确保附件功能和锚点不冲突
             if ext != '.md':
                 sidebar_content.append(f"{indent}  * [{file}]({url_path} ':ignore')\n")
             else:
@@ -36,7 +34,7 @@ def generate_sidebar():
 
     with open(SIDEBAR_PATH, 'w', encoding='utf-8') as f:
         f.writelines(sidebar_content)
-    print(f"✅ 侧边栏已更新，联系方式链接已修正。")
+    print(f"✅ 侧边栏已更新。")
 
 if __name__ == "__main__":
     generate_sidebar()
