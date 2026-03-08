@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>NKAI 资料共享计划</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 侧边栏样式微调 */
+    .sidebar-nav li > a { font-size: 15px; font-weight: 500; }
+    /* 主题色：南开紫系列 */
+    :root { --theme-color: #702670; }
+  </style>
+</head>
+<body>
+  <div id="app">正在加载资料库...</div>
+  <script>
+    window.$docsify = {
+      name: 'NKAI Share',
+      repo: 'https://github.com/nkai-share/nankai-ai-Datashare',
+      
+      // 【方案B核心设置】
+      basePath: '..',           // 设置资源基础路径为 docs 的上一级（即根目录）
+      homepage: 'README.md',     // 指定根目录的 README.md 作为网页主页内容
+      
+      loadSidebar: 'docs/_sidebar.md', // 指定侧边栏配置文件路径
+      loadNavbar: 'docs/_navbar.md',   // 指定导航栏配置文件路径
+      
+      subMaxLevel: 3,           // 抓取 md 文件中的标题层级显示在侧边栏
+      auto2top: true,           // 切换页面后自动回到顶部
+      relativeURLs: true,       // 启用相对路径链接
+      
+      // 搜索插件配置
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索资料或课程...',
+        noData: '未找到相关内容',
+        depth: 4
+      }
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+</html>
