@@ -1,9 +1,9 @@
 import os
 
 # --- 配置区 ---
-EXCLUDE_DIRS = ['.git', '.github', 'docs', 'assets', '.vscode']  # 忽略这些文件夹
+EXCLUDE_DIRS = ['.git', '.github', 'assets', '.vscode']  # 忽略这些文件夹
 EXCLUDE_FILES = ['README.md', 'SUMMARY.md']                      # 侧边栏通常不重复列出首页
-SIDEBAR_PATH = 'docs/_sidebar.md'                                # 输出路径
+SIDEBAR_PATH = '_sidebar.md'                                # 输出路径
 # --------------
 
 def generate_sidebar():

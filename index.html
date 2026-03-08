@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>NKAI 资料共享计划</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root { --theme-color: #702670; }
+  </style>
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+    window.$docsify = {
+      name: 'NKAI Share',
+      repo: 'https://github.com/nkai-share/nankai-ai-Datashare',
+      
+      // 现在一切都在同级目录下
+      loadSidebar: true,   // 自动寻找当前目录下的 _sidebar.md
+      loadNavbar: true,    // 自动寻找当前目录下的 _navbar.md
+      homepage: 'README.md',
+      
+      subMaxLevel: 3,
+      auto2top: true,
+      search: 'auto'
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>
